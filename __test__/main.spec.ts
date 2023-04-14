@@ -9,7 +9,6 @@ class TemplateLibrary {
 }
 
 describe('Template library should', () => {
-  new TemplateLibrary();
   describe('do not replace', () => {
     it('text without variables', () => {
       const dictionary: Record <string, string> = { }
