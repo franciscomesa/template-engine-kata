@@ -1,5 +1,3 @@
-import {describe} from "node:test";
-
 class TemplateLibrary {
   // @ts-ignore
   replace(s: string, dictionary: Record <string, string>): string {
@@ -17,15 +15,25 @@ describe('Template library should', () => {
       const result = template.replace('', dictionary);
 
       expect(result).toBe('');
-    });
+    })
 
-    it.skip('Do not replace text without variables');
+    it('Do not replace text without variables', () => {
+      const template = new TemplateLibrary();
+      const dictionary: Record <string, string> = { };
+
+      const result = template.replace('Fulanito de tal', dictionary);
+
+      expect(result).toBe('Fulanito de tal');
+
+    })
+
+    it.skip('Do not replace text if dictionary does not have variables', () => {});
 
   })
 
   describe('replace text when', () => {
-    it.skip('Replace text with one variable');
-    it.skip('Replace text with multiple variables');
+    it.skip('Replace text with one variable', () => {})
+    it.skip('Replace text with multiple variables', () => {})
   })
 
   describe ('Edge cases and exceptions', () =>  {
