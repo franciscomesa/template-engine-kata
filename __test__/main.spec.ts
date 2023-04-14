@@ -1,12 +1,4 @@
-class TemplateLibrary {
-  // @ts-ignore
-  static replace(s: string, dictionary: Record <string, string>): string {
-      Object.entries(dictionary).forEach(([key, value]) => {
-        s = s.replace(`$\{${key}}`, value);
-      })
-      return s
-    }
-}
+import {TemplateLibrary} from "../src/templateLibrary";
 
 describe('Template library should', () => {
   describe('do not replace', () => {
