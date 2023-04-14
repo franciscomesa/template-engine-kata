@@ -1,8 +1,8 @@
 class TemplateLibrary {
   // @ts-ignore
   static replace(s: string, dictionary: Record <string, string>): string {
-      Object.entries(dictionary).forEach(entry => {
-        s = s.replace(`$\{${entry[0]}}`, entry[1]);
+      Object.entries(dictionary).forEach(([key, value]) => {
+        s = s.replace(`$\{${key}}`, value);
       })
       return s
 
