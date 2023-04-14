@@ -46,7 +46,13 @@ describe('Template library should', () => {
 
         expect(result).toBe('Ella menganita de tal')
     })
-    it.skip('Replace text with multiple variables', () => {})
+    it('Replace text with multiple variables', () => {
+      const dictionary: Record <string, string> = { pronombreFemenino: 'Ella', pronombreMasculino: 'El' }
+
+      const result = TemplateLibrary.replace('${pronombreFemenino} menganita de tal. ${pronombreMasculino} menganito de tal', dictionary)
+
+      expect(result).toBe('Ella menganita de tal. El menganito de tal')
+    })
   })
 
   describe ('Edge cases and exceptions', () =>  {
