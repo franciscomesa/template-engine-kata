@@ -7,28 +7,31 @@ class TemplateLibrary {
 }
 
 describe('Template library should', () => {
+  new TemplateLibrary();
   describe('do not replace', () => {
-    it('Do not replace empty string', () => {
-      const template = new TemplateLibrary();
-      const dictionary: Record <string, string> = { };
+    it('empty string', () => {
+      const dictionary: Record <string, string> = { }
 
-      const result = template.replace('', dictionary);
+      const result = TemplateLibrary.replace('', dictionary)
 
       expect(result).toBe('');
     })
 
-    it('Do not replace text without variables', () => {
-      const template = new TemplateLibrary();
-      const dictionary: Record <string, string> = { };
+    it('text without variables', () => {
+      const dictionary: Record <string, string> = { }
 
-      const result = template.replace('Fulanito de tal', dictionary);
+      const result = TemplateLibrary.replace('Menganito de tal', dictionary);
 
-      expect(result).toBe('Fulanito de tal');
-
+      expect(result).toBe('Menganito de tal')
     })
 
-    it.skip('Do not replace text if dictionary does not have variables', () => {});
+    it('text if dictionary does not have variables', () => {
+      const dictionary: Record <string, string> = { }
 
+      const result = TemplateLibrary.replace('Menganito ${apellido} de tal', dictionary)
+
+      expect(result).toBe('Menganito ${apellido} de tal')
+    })
   })
 
   describe('replace text when', () => {
@@ -41,3 +44,4 @@ describe('Template library should', () => {
   })
 
 })
+
