@@ -5,9 +5,7 @@ class TemplateLibrary {
         s = s.replace(`$\{${key}}`, value);
       })
       return s
-
     }
-
 }
 
 describe('Template library should', () => {
@@ -87,6 +85,5 @@ describe('Template library should', () => {
     // and the case of values that are not convertible to string (not serializable)...
     // How would you design the library in a way that is resilient, intuitive, and comfortable to use?
   })
-
 })
 
