@@ -5,7 +5,7 @@ describe('Template library should', () => {
     it('text without variables', () => {
       const dictionary: Record <string, string> = { }
 
-      const result = TemplateLibrary.replace('Menganito de tal', dictionary);
+      const {result} = TemplateLibrary.replace('Menganito de tal', dictionary);
 
       expect(result).toBe('Menganito de tal')
     })
@@ -15,14 +15,14 @@ describe('Template library should', () => {
     it('found one variable', () => {
         const dictionary: Record <string, string> = { pronombreFemenino: 'Ella' }
 
-        const result = TemplateLibrary.replace('${pronombreFemenino} menganita de tal', dictionary)
+        const {result} = TemplateLibrary.replace('${pronombreFemenino} menganita de tal', dictionary)
 
         expect(result).toBe('Ella menganita de tal')
     })
     it('found multiple variables', () => {
       const dictionary: Record <string, string> = { pronombreFemenino: 'Ella', pronombreMasculino: 'El' }
 
-      const result = TemplateLibrary.replace('${pronombreFemenino} menganita de tal. ${pronombreMasculino} menganito de tal', dictionary)
+      const {result} = TemplateLibrary.replace('${pronombreFemenino} menganita de tal. ${pronombreMasculino} menganito de tal', dictionary)
 
       expect(result).toBe('Ella menganita de tal. El menganito de tal')
     })
@@ -41,7 +41,7 @@ describe('Template library should', () => {
     it('do not replace empty string', () => {
       const dictionary: Record <string, string> = { }
 
-      const result = TemplateLibrary.replace('', dictionary)
+      const {result} = TemplateLibrary.replace('', dictionary)
 
       expect(result).toBe('');
     })
@@ -49,7 +49,7 @@ describe('Template library should', () => {
     it('do not replace text if dictionary does not have variables', () => {
       const dictionary: Record <string, string> = { }
 
-      const result = TemplateLibrary.replace('Menganito ${apellido} de tal', dictionary)
+      const {result} = TemplateLibrary.replace('Menganito ${apellido} de tal', dictionary)
 
       expect(result).toBe('Menganito ${apellido} de tal')
     })
@@ -57,7 +57,7 @@ describe('Template library should', () => {
     it('variables not found in the dictionary', () => {
       const dictionary: Record <string, string> = { pronombreFemenino: 'Ella' }
 
-      const result = TemplateLibrary.replace('${pronombreFemenino} menganita de tal. ${pronombreMasculino} menganito de tal', dictionary)
+      const {result} = TemplateLibrary.replace('${pronombreFemenino} menganita de tal. ${pronombreMasculino} menganito de tal', dictionary)
 
       expect(result).toBe('Ella menganita de tal. ${pronombreMasculino} menganito de tal')
     })
@@ -65,7 +65,7 @@ describe('Template library should', () => {
     it('variables not used in the dictionary', () => {
       const dictionary: Record <string, string> = { pronombreFemenino: 'Ella', pronombreMasculino: 'El' }
 
-      const result = TemplateLibrary.replace('Ella menganita de tal. ${pronombreMasculino} menganito de tal', dictionary)
+      const {result} = TemplateLibrary.replace('Ella menganita de tal. ${pronombreMasculino} menganito de tal', dictionary)
 
       expect(result).toBe('Ella menganita de tal. El menganito de tal')
     })
