@@ -39,14 +39,14 @@ describe('Template library should', () => {
   })
 
   describe('replace text when', () => {
-    it('Replace text with one variable', () => {
+    it('found one variable', () => {
         const dictionary: Record <string, string> = { pronombreFemenino: 'Ella' }
 
         const result = TemplateLibrary.replace('${pronombreFemenino} menganita de tal', dictionary)
 
         expect(result).toBe('Ella menganita de tal')
     })
-    it('Replace text with multiple variables', () => {
+    it('found multiple variables', () => {
       const dictionary: Record <string, string> = { pronombreFemenino: 'Ella', pronombreMasculino: 'El' }
 
       const result = TemplateLibrary.replace('${pronombreFemenino} menganita de tal. ${pronombreMasculino} menganito de tal', dictionary)
