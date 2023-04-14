@@ -1,8 +1,12 @@
 class TemplateLibrary {
   // @ts-ignore
-  replace(s: string, dictionary: Record <string, string>): string {
-    return s
-  }
+  static replace(s: string, dictionary: Record <string, string>): string {
+      Object.entries(dictionary).forEach(entry => {
+        s = s.replace(`$\{${entry[0]}}`, entry[1]);
+      })
+      return s
+
+    }
 
 }
 
@@ -35,7 +39,13 @@ describe('Template library should', () => {
   })
 
   describe('replace text when', () => {
-    it.skip('Replace text with one variable', () => {})
+    it('Replace text with one variable', () => {
+        const dictionary: Record <string, string> = { pronombreFemenino: 'Ella' }
+
+        const result = TemplateLibrary.replace('${pronombreFemenino} menganita de tal', dictionary)
+
+        expect(result).toBe('Ella menganita de tal')
+    })
     it.skip('Replace text with multiple variables', () => {})
   })
 
