@@ -1,6 +1,9 @@
 
 export type TemplateText = string
 
+// This option is not viable, sometimes we need return errors and string values.
+// export type ExperimentalResult = string | string[]
+
 export class TemplateTextResult {
     errors: string[] = []
     result: TemplateText = ""
